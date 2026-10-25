@@ -1,386 +1,267 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agalya | Skills & Experience</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agalya J. | Software Engineer & ECE Graduate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f4fb; --surface:#fff; --ink:#151a33; --muted:#566079; --line:#dde0f0;
+  --accent:#4f46e5; --accent2:#06b6d4; --accent-soft:#e9e8fd; --shadow:0 12px 30px rgba(40,40,110,.12);
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0c0f20;--surface:#151a33;--ink:#eef0ff;--muted:#a3abc9;--line:#262c52;--accent:#8b85ff;--accent-soft:#25285a;--shadow:0 12px 30px rgba(0,0,0,.45)}
+}
+:root[data-theme="dark"]{--bg:#0c0f20;--surface:#151a33;--ink:#eef0ff;--muted:#a3abc9;--line:#262c52;--accent:#8b85ff;--accent-soft:#25285a;--shadow:0 12px 30px rgba(0,0,0,.45)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;font-size:17px}
+:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display)}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:#0d1030;padding:96px 0 48px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 360px at 85% 10%,rgba(79,70,229,.65),transparent 70%),
+  radial-gradient(500px 320px at 5% 90%,rgba(6,182,212,.4),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(#000,transparent 85%)}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-weight:800;font-size:clamp(52px,10vw,112px);line-height:.98;letter-spacing:-.035em}
+.hero h1 span{background:linear-gradient(90deg,#a5b4fc,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:var(--display);font-weight:500;font-size:clamp(20px,3vw,30px);margin:18px 0 12px;max-width:26ch;line-height:1.25}
+.sub{color:#c7cbef;max-width:54ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;text-decoration:none;padding:12px 22px;border-radius:99px;font-weight:500;transition:transform .2s,box-shadow .2s}
+.btn.main{background:linear-gradient(90deg,#6366f1,#06b6d4);color:#fff}
+.btn.ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.wave{display:block;width:100%;height:auto;margin-top:44px}
+.wave path{fill:none;stroke:url(#g);stroke-width:3;stroke-linejoin:round;stroke-dasharray:2600;stroke-dashoffset:2600;animation:draw 2.6s .2s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.stats{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:20px;color:#c7cbef;font-size:15px}
+.stats b{display:block;font-family:var(--display);font-size:30px;color:#fff;line-height:1.1}
 
-    :root {
-      --primary: #5145cd;
-      --secondary: #2563eb;
-      --dark: #172554;
-      --text: #475569;
-      --light: #f5f7ff;
-      --white: #ffffff;
-    }
+/* sections */
+section{padding:72px 0 0}
+.head{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.head::before{content:"";width:6px;height:30px;border-radius:4px;background:linear-gradient(var(--accent),var(--accent2))}
+.head h2{font-size:clamp(26px,4vw,34px);letter-spacing:-.02em}
+.lead{color:var(--muted);max-width:66ch;margin-bottom:12px}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.7;
-    }
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent)}
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15.5px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.chips span{background:var(--accent-soft);color:var(--accent);padding:3px 11px;border-radius:99px;font-size:13.5px}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:var(--display);font-weight:800;font-size:18px}
 
-    .hero {
-      text-align: center;
-      padding: 65px 20px;
-      color: white;
-      background: linear-gradient(135deg, #312e81, #5145cd, #3985e8);
-    }
+/* timeline */
+.tl{list-style:none;border-left:2px solid var(--line);margin-left:8px}
+.tl>li{position:relative;padding:0 0 26px 30px}
+.tl>li::before{content:"";position:absolute;left:-9px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.tl>li.now::before{background:var(--accent2);border-color:var(--accent2);box-shadow:0 0 0 6px rgba(6,182,212,.2)}
+.tl .card{padding:18px 22px}
+.when{font-size:14px;font-weight:500;color:var(--accent)}
+.org{color:var(--muted);margin-bottom:6px}
+.tl ul{padding-left:18px;color:var(--muted);font-size:15.5px}
 
-    .hero .label {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,.5);
-      padding: 5px 15px;
-      border-radius: 30px;
-      margin-bottom: 15px;
-    }
+/* projects */
+.projects{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.proj{padding:0;overflow:hidden;display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
+.art{height:200px;display:block;width:100%;overflow:hidden}
+.art svg{width:100%;height:100%;display:block;transition:transform .6s}
+.proj:hover .art svg{transform:scale(1.08)}
+.proj .txt{padding:20px 22px 24px}
+.kind{display:inline-block;font-size:13px;color:var(--accent);background:var(--accent-soft);padding:2px 11px;border-radius:99px;margin-bottom:10px}
+.a1{background:linear-gradient(135deg,#312e81,#6366f1)}
+.a2{background:linear-gradient(135deg,#0e7490,#22d3ee)}
+.a3{background:linear-gradient(135deg,#7c3aed,#ec4899)}
+.a4{background:linear-gradient(135deg,#0f172a,#334155)}
+.a5{background:linear-gradient(135deg,#f97316,#facc15)}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+.pulse:nth-child(3n){animation-delay:.6s}.pulse:nth-child(3n+1){animation-delay:1.2s}
+@keyframes pulse{50%{opacity:.35}}
+.drop{animation:fall 2.8s ease-in infinite}
+.drop:nth-of-type(2){animation-delay:.9s}.drop:nth-of-type(3){animation-delay:1.8s}
+@keyframes fall{0%{transform:translateY(-14px);opacity:0}30%{opacity:1}100%{transform:translateY(40px);opacity:0}}
+.blink{animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
 
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 54px);
-      margin-bottom: 10px;
-    }
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
 
-    .hero p {
-      max-width: 650px;
-      margin: 8px auto;
-    }
+footer{margin-top:90px;background:#0d1030;color:#fff;text-align:center;padding:64px 24px 72px;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 260px at 50% 0,rgba(99,102,241,.5),transparent 70%)}
+footer>*{position:relative}
+footer h2{font-weight:800;font-size:clamp(32px,6vw,54px);letter-spacing:-.02em;margin-bottom:10px}
+footer p{color:#c7cbef;max-width:50ch;margin:0 auto}
 
-    .container {
-      max-width: 1000px;
-      margin: 35px auto;
-      padding: 0 18px;
-    }
-
-    .section {
-      background: var(--white);
-      padding: 28px;
-      border-radius: 18px;
-      margin-bottom: 22px;
-      box-shadow: 0 5px 20px rgba(49,46,129,.06);
-    }
-
-    h2 {
-      color: var(--primary);
-      margin-bottom: 16px;
-      font-size: 25px;
-    }
-
-    h3 {
-      margin-bottom: 5px;
-      color: var(--dark);
-    }
-
-    p {
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      padding: 18px;
-      border: 1px solid #e0e7ff;
-      border-radius: 13px;
-      background: #fbfcff;
-    }
-
-    .card p {
-      margin-top: 8px;
-      font-size: 14px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .tag {
-      background: #eeedff;
-      color: #4338a8;
-      padding: 7px 12px;
-      border-radius: 25px;
-      font-size: 14px;
-    }
-
-    .timeline {
-      border-left: 3px solid #c7d2fe;
-      padding-left: 20px;
-      margin-left: 5px;
-    }
-
-    .item {
-      margin-bottom: 24px;
-      position: relative;
-    }
-
-    .item::before {
-      content: "";
-      position: absolute;
-      left: -28px;
-      top: 8px;
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-    }
-
-    .date {
-      color: var(--secondary);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    ul {
-      padding-left: 22px;
-      color: var(--text);
-    }
-
-    li {
-      margin: 7px 0;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 35px 20px;
-      background: #172554;
-      color: white;
-    }
-
-    .footer p {
-      color: #dbeafe;
-    }
-
-    @media (max-width: 500px) {
-      .section {
-        padding: 21px;
-      }
-    }
-  </style>
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .wave path{stroke-dashoffset:0}.rv{opacity:1;transform:none}
+}
+</style>
 </head>
-
 <body>
 
-  <header class="hero">
-    <span class="label">Personal Profile</span>
-    <h1>Hi, I'm Agalya J.</h1>
-    <p>
-      Electronics & Communication Engineering | Software Development |
-      Mobile Applications | Web Technologies | IoT
-    </p>
-    <p>
-      Building practical solutions, exploring new technologies,
-      and continuously growing as a developer.
-    </p>
-  </header>
+<header class="hero">
+  <div class="wrap">
+    <h1>Agalya <span>J.</span></h1>
+    <p class="role">Software engineer who started in electronics.</p>
+    <p class="sub">I build mobile apps and websites, and I like understanding the hardware underneath them. ECE graduate, now a Junior Software Engineer at Proglint Solutions.</p>
+    <div class="cta"><a class="btn main" href="#projects">See my projects</a><a class="btn ghost" href="#experience">My experience</a></div>
+    <svg class="wave" viewBox="0 0 1200 120" role="img" aria-label="An analog wave turning into a digital square wave">
+      <defs><linearGradient id="g"><stop offset="0" stop-color="#a5b4fc"/><stop offset="1" stop-color="#67e8f9"/></linearGradient></defs>
+      <path d="M0 60 C50 0 100 0 150 60 S250 120 300 60 S400 0 450 60 S550 120 600 60 V20 H680 V100 H760 V20 H840 V100 H920 V20 H1000 V100 H1080 V60 H1200"/>
+    </svg>
+    <div class="stats"><div><b>3</b>roles and internships</div><div><b>5</b>projects</div><div><b>3</b>certifications</div></div>
+  </div>
+</header>
 
-  <main class="container">
+<main class="wrap">
 
-    <section class="section">
-      <h2>About Me</h2>
-      <p>
-        I am an Electronics and Communication Engineering student from
-        Sri Manakula Vinayagar Engineering College, with an interest in
-        software development, mobile applications, web technologies,
-        electronics, and Internet of Things (IoT).
-      </p>
-      <p>
-        I have gained practical exposure through internships, academic
-        projects, technical activities, and independent learning. I enjoy
-        understanding how technologies work and applying my knowledge
-        to build useful applications and solutions.
-      </p>
-    </section>
+  <section class="rv">
+    <div class="head"><h2>About me</h2></div>
+    <p class="lead">I studied Electronics and Communication Engineering at Sri Manakula Vinayagar Engineering College, with a growing interest in software development, mobile apps, web technologies and the Internet of Things.</p>
+    <p class="lead">Internships, academic projects, student activities and self-study have taught me most of what I know. I enjoy working out how a technology works, then using it to build something useful.</p>
+  </section>
 
-    <section class="section">
-      <h2>Technical Skills</h2>
+  <section class="rv">
+    <div class="head"><h2>Skills</h2></div>
+    <div class="grid g3">
+      <div class="card"><div class="ico">📱</div><h3>Mobile</h3><div class="chips"><span>React Native</span><span>Android</span><span>Kotlin</span><span>Java</span><span>Android Studio</span></div></div>
+      <div class="card"><div class="ico">🌐</div><h3>Web</h3><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Drupal</span><span>Responsive design</span></div></div>
+      <div class="card"><div class="ico">🔌</div><h3>State and APIs</h3><div class="chips"><span>Redux Toolkit</span><span>RTK Query</span><span>API integration</span></div></div>
+      <div class="card"><div class="ico">📡</div><h3>Electronics and IoT</h3><div class="chips"><span>ESP32</span><span>Arduino</span><span>Sensors</span><span>Prototyping</span><span>Circuit simulation</span></div></div>
+      <div class="card"><div class="ico">🎨</div><h3>Design and teamwork</h3><div class="chips"><span>Figma</span><span>Canva</span><span>Git</span><span>GitHub</span></div></div>
+      <div class="card"><div class="ico">🧠</div><h3>Fundamentals</h3><div class="chips"><span>Computer fundamentals</span><span>DBMS</span><span>Programming basics</span></div></div>
+    </div>
+  </section>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Mobile Development</h3>
-          <p>React Native, Android development, Kotlin, Java, Android Studio</p>
-        </div>
+  <section id="experience" class="rv">
+    <div class="head"><h2>Experience</h2></div>
+    <ul class="tl">
+      <li class="now"><div class="card"><span class="when">August 2026 to present</span><h3>Junior Software Engineer</h3><p class="org">Proglint Solutions</p>
+        <ul><li>Work with existing software projects and application codebases.</li><li>Improve and optimize website design.</li><li>Build on my React Native, Redux Toolkit and API integration experience.</li></ul></div></li>
+      <li><div class="card"><span class="when">April to July 2026</span><h3>Mobile App Developer Intern</h3><p class="org">Proglint Solutions</p>
+        <ul><li>Worked on React Native mobile application projects.</li><li>Got hands-on with Redux Toolkit and API integration.</li><li>Contributed to existing repositories and app features.</li></ul></div></li>
+      <li><div class="card"><span class="when">2024</span><h3>Frontend Developer Intern</h3><p class="org">Praya Labs</p>
+        <ul><li>Built Drupal websites and responsive user interfaces.</li><li>Customized layouts and themes with HTML and CSS.</li><li>Turned design references into web pages using Git workflows.</li></ul></div></li>
+    </ul>
+  </section>
 
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>HTML, CSS, JavaScript, Drupal, responsive web design</p>
-        </div>
+  <section id="projects">
+    <div class="head"><h2>Projects</h2></div>
+    <div class="grid projects">
 
-        <div class="card">
-          <h3>State Management & APIs</h3>
-          <p>Redux Toolkit, RTK Query, API integration</p>
-        </div>
+      <article class="card proj rv">
+        <div class="art a1"><svg viewBox="0 0 400 200" aria-hidden="true">
+          <g fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.55)" stroke-width="1.5">
+            <rect class="pulse" x="40" y="30" width="56" height="40" rx="8"/><rect class="pulse" x="110" y="30" width="56" height="40" rx="8"/><rect class="pulse" x="180" y="30" width="56" height="40" rx="8"/><rect class="pulse" x="250" y="30" width="56" height="40" rx="8"/><rect class="pulse" x="320" y="30" width="40" height="40" rx="8"/>
+            <rect class="pulse" x="40" y="82" width="56" height="40" rx="8"/><rect class="pulse" x="110" y="82" width="56" height="40" rx="8"/><rect class="pulse" x="180" y="82" width="56" height="40" rx="8"/><rect class="pulse" x="250" y="82" width="56" height="40" rx="8"/><rect class="pulse" x="320" y="82" width="40" height="40" rx="8"/>
+            <rect class="pulse" x="40" y="134" width="56" height="40" rx="8"/><rect class="pulse" x="110" y="134" width="56" height="40" rx="8"/><rect class="pulse" x="180" y="134" width="56" height="40" rx="8"/><rect class="pulse" x="250" y="134" width="56" height="40" rx="8"/><rect class="pulse" x="320" y="134" width="40" height="40" rx="8"/>
+          </g>
+          <g fill="#fff" font-family="monospace" font-size="18" text-anchor="middle"><text x="68" y="57">1</text><text x="138" y="57">0</text><text x="208" y="57">1</text><text x="278" y="109">0</text><text x="68" y="109">0</text><text x="138" y="161">1</text><text x="208" y="109">1</text><text x="278" y="57">0</text><text x="340" y="161">1</text></g>
+        </svg></div>
+        <div class="txt"><span class="kind">Research</span><h3>9T SRAM using CNTFET technology</h3><p>Academic research on power-optimized 9T SRAM design with 32 nm CNTFET technology, simulated in HSPICE.</p></div>
+      </article>
 
-        <div class="card">
-          <h3>Electronics & IoT</h3>
-          <p>ESP32, Arduino, sensors, IoT prototyping, circuit simulation</p>
-        </div>
+      <article class="card proj rv">
+        <div class="art a2"><svg viewBox="0 0 400 200" aria-hidden="true">
+          <g fill="#fff" opacity=".9"><path class="drop" d="M70 30 q-12 20 0 28 q12 -8 0 -28z"/><path class="drop" d="M110 20 q-12 20 0 28 q12 -8 0 -28z"/><path class="drop" d="M150 36 q-12 20 0 28 q12 -8 0 -28z"/></g>
+          <path d="M0 120 q50 -20 100 0 t100 0 t100 0 t100 0 V200 H0z" fill="rgba(255,255,255,.25)"/>
+          <rect x="215" y="40" width="150" height="100" rx="12" fill="#0b2a33" stroke="#fff" stroke-width="3"/>
+          <g fill="#67e8f9" font-family="monospace" font-size="15"><text x="232" y="72">TDS: 142 ppm</text><text x="232" y="96">pH:  7.2</text><text x="232" y="120">Water: OK</text></g>
+          <g stroke="#fff" stroke-width="3" fill="none"><path d="M215 90 H185 V150"/><circle cx="185" cy="158" r="8" fill="#fff"/></g>
+        </svg></div>
+        <div class="txt"><span class="kind">IoT</span><h3>Microplastics water monitoring</h3><p>Sensors, a microcontroller and an OLED display working together to monitor water-related parameters.</p></div>
+      </article>
 
-        <div class="card">
-          <h3>Design & Collaboration</h3>
-          <p>Figma, Canva, Git, GitHub, collaborative development workflows</p>
-        </div>
+      <article class="card proj rv">
+        <div class="art a3"><svg viewBox="0 0 400 200" aria-hidden="true">
+          <rect x="145" y="12" width="110" height="196" rx="18" fill="#1e1b4b" stroke="#fff" stroke-width="3"/>
+          <rect x="157" y="34" width="86" height="12" rx="6" fill="#a78bfa"/>
+          <g fill="rgba(255,255,255,.22)"><rect x="157" y="56" width="86" height="28" rx="8"/><rect x="157" y="92" width="86" height="28" rx="8"/><rect x="157" y="128" width="86" height="28" rx="8"/></g>
+          <g fill="#f9a8d4"><circle cx="171" cy="70" r="7"/><circle cx="171" cy="106" r="7"/><circle cx="171" cy="142" r="7"/></g>
+          <g fill="none" stroke="#fff" stroke-width="2.5" opacity=".8"><path d="M70 70 h35 m-8 -8 l8 8 l-8 8"/><path d="M330 130 h-35 m8 -8 l-8 8 l8 8"/></g>
+          <g fill="#fff" font-family="monospace" font-size="13" opacity=".9"><text x="40" y="52">API</text><text x="298" y="116">Redux</text></g>
+        </svg></div>
+        <div class="txt"><span class="kind">Mobile</span><h3>Mobile application development</h3><p>React Native screens with state management, API integration and offline app concepts.</p></div>
+      </article>
 
-        <div class="card">
-          <h3>Core Concepts</h3>
-          <p>Computer Fundamentals, DBMS concepts, programming fundamentals</p>
-        </div>
-      </div>
-    </section>
+      <article class="card proj rv">
+        <div class="art a4"><svg viewBox="0 0 400 200" aria-hidden="true">
+          <rect x="50" y="26" width="300" height="150" rx="12" fill="#0b1120" stroke="#64748b" stroke-width="2"/>
+          <rect x="50" y="26" width="300" height="26" rx="12" fill="#1e293b"/>
+          <g><circle cx="68" cy="39" r="5" fill="#f87171"/><circle cx="86" cy="39" r="5" fill="#fbbf24"/><circle cx="104" cy="39" r="5" fill="#4ade80"/></g>
+          <g font-family="monospace" font-size="14" fill="#4ade80"><text x="68" y="78">1. Add student</text><text x="68" y="100">2. View records</text><text x="68" y="122">3. Update / Delete</text><text x="68" y="150" fill="#fff">&gt; choose option_</text></g>
+          <rect class="blink" x="212" y="138" width="9" height="14" fill="#fff"/>
+        </svg></div>
+        <div class="txt"><span class="kind">Java</span><h3>Student record management system</h3><p>A console application covering student records and basic CRUD operations.</p></div>
+      </article>
 
-    <section class="section">
-      <h2>Professional Experience</h2>
+      <article class="card proj rv">
+        <div class="art a5"><svg viewBox="0 0 400 200" aria-hidden="true">
+          <rect x="40" y="22" width="320" height="160" rx="12" fill="#fff"/>
+          <rect x="40" y="22" width="320" height="24" rx="12" fill="#fde68a"/>
+          <circle cx="58" cy="34" r="4" fill="#f97316"/><circle cx="73" cy="34" r="4" fill="#f97316"/>
+          <rect x="62" y="68" width="120" height="14" rx="7" fill="#7c2d12"/><rect x="62" y="92" width="150" height="8" rx="4" fill="#d6d3d1"/><rect x="62" y="108" width="110" height="8" rx="4" fill="#d6d3d1"/>
+          <rect x="62" y="134" width="70" height="24" rx="12" fill="#f97316"/>
+          <circle cx="280" cy="108" r="46" fill="#fff7ed" stroke="#f97316" stroke-width="4"/><circle cx="280" cy="108" r="28" fill="#fb923c"/><circle cx="268" cy="98" r="6" fill="#facc15"/><circle cx="292" cy="116" r="6" fill="#4ade80"/>
+        </svg></div>
+        <div class="txt"><span class="kind">Web</span><h3>Foody landing page</h3><p>A food-themed landing page in HTML and CSS, made to practice layout and styling.</p></div>
+      </article>
 
-      <div class="timeline">
+    </div>
+  </section>
 
-        <div class="item">
-          <span class="date">August 2026 – Present</span>
-          <h3>Junior Software Engineer</h3>
-          <p>Proglint Solutions</p>
-          <ul>
-            <li>Working with existing software projects and application codebases.</li>
-            <li>Contributing to website design improvement and optimization tasks.</li>
-            <li>Building on experience with React Native, Redux Toolkit, and API integration.</li>
-          </ul>
-        </div>
+  <section class="rv">
+    <div class="head"><h2>Education and leadership</h2></div>
+    <div class="grid g3">
+      <div class="card"><div class="ico">🎓</div><h3>B.E. Electronics and Communication Engineering</h3><p>Sri Manakula Vinayagar Engineering College<br>Class of 2026 &middot; CGPA 7.87 / 10</p></div>
+      <div class="card"><div class="ico">🏆</div><h3>President, IETE Students’ Forum</h3><p>Helped run HTML hands-on sessions, technical quizzes, electronics activities and technology workshops.</p></div>
+      <div class="card"><div class="ico">📜</div><h3>Certifications</h3><p>NPTEL: Database Management Systems (52 marks)<br>NPTEL: Internet of Things (Elite, 77%)<br>Infosys Springboard: HTML, CSS and JavaScript</p></div>
+    </div>
+  </section>
 
-        <div class="item">
-          <span class="date">April 2026 – July 2026</span>
-          <h3>Mobile App Developer Intern</h3>
-          <p>Proglint Solutions</p>
-          <ul>
-            <li>Worked with React Native mobile application projects.</li>
-            <li>Gained practical exposure to Redux Toolkit and API integration.</li>
-            <li>Worked with existing repositories and application features.</li>
-          </ul>
-        </div>
+  <section class="rv">
+    <div class="head"><h2>Interests</h2></div>
+    <div class="chips" style="gap:10px"><span style="font-size:15px;padding:6px 15px">Mobile apps</span><span style="font-size:15px;padding:6px 15px">Frontend</span><span style="font-size:15px;padding:6px 15px">Software engineering</span><span style="font-size:15px;padding:6px 15px">UI design</span><span style="font-size:15px;padding:6px 15px">Internet of Things</span><span style="font-size:15px;padding:6px 15px">Electronics</span><span style="font-size:15px;padding:6px 15px">Technology education</span></div>
+  </section>
 
-        <div class="item">
-          <span class="date">2024</span>
-          <h3>Frontend Developer Intern</h3>
-          <p>Praya Labs</p>
-          <ul>
-            <li>Worked on Drupal website development and responsive user interfaces.</li>
-            <li>Used HTML and CSS to customize website layouts and themes.</li>
-            <li>Worked with Git workflows and translated design references into web pages.</li>
-          </ul>
-        </div>
+</main>
 
-      </div>
-    </section>
+<footer>
+  <h2>Let’s build something.</h2>
+  <p>I’m open to collaborations, learning opportunities and software development roles.</p>
+</footer>
 
-    <section class="section">
-      <h2>Projects</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>9T SRAM Using CNTFET Technology</h3>
-          <p>
-            Academic research project focused on power-optimized 9T SRAM
-            design using 32 nm CNTFET technology and HSPICE simulation.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Microplastics Water Monitoring</h3>
-          <p>
-            IoT-based water monitoring project using sensors, a
-            microcontroller, and an OLED display to monitor water-related
-            parameters.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Student Record Management System</h3>
-          <p>
-            Java console application implementing basic student record
-            management and CRUD operations.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Foody Landing Page</h3>
-          <p>
-            A food-themed landing page created using HTML and CSS to
-            practice web layout and styling.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Mobile Application Development</h3>
-          <p>
-            Practical work with React Native application screens,
-            state management, API integration, and offline app concepts.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Education</h2>
-      <div class="card">
-        <h3>B.E. Electronics and Communication Engineering</h3>
-        <p>Sri Manakula Vinayagar Engineering College</p>
-        <p>Expected graduation: 2026</p>
-        <p>CGPA: 7.70 / 10 (previously reported)</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Leadership & Activities</h2>
-      <div class="card">
-        <h3>President — IETE Students' Forum (ISF)</h3>
-        <p>
-          Contributed to student technical activities and helped organize
-          events such as HTML hands-on sessions, technical quizzes,
-          electronics-related activities, and technology workshops.
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Certifications & Learning</h2>
-      <ul>
-        <li>NPTEL — Database Management Systems (52 marks)</li>
-        <li>NPTEL — Internet of Things (Elite, 77%)</li>
-        <li>Infosys Springboard — HTML, CSS, and JavaScript learning</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Areas of Interest</h2>
-      <div class="tags">
-        <span class="tag">Mobile App Development</span>
-        <span class="tag">Frontend Development</span>
-        <span class="tag">Software Engineering</span>
-        <span class="tag">UI Design</span>
-        <span class="tag">Internet of Things</span>
-        <span class="tag">Electronics</span>
-        <span class="tag">Technology Education</span>
-        <span class="tag">Continuous Learning</span>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <h2>Let's Connect!</h2>
-    <p>Open to learning opportunities, collaborations, and software development roles.</p>
-    <p>Agalya J. | Technology • Innovation • Growth</p>
-  </footer>
-
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+  if(window.matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches){
+    document.querySelectorAll('.proj').forEach(function(c){
+      c.addEventListener('mousemove',function(ev){
+        var r=c.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;
+        c.style.transform='perspective(800px) rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) translateY(-5px)';
+      });
+      c.addEventListener('mouseleave',function(){c.style.transform=''});
+    });
+  }
+})();
+</script>
 </body>
 </html>
