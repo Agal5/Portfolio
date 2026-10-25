@@ -1,1073 +1,386 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Agalya J — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --cream: #F5F0E8;
-    --dark: #1A1A2E;
-    --teal: #0F7B6C;
-    --teal-light: #14A68F;
-    --gold: #C9A84C;
-    --muted: #6B6B7B;
-    --card-bg: #FFFFFF;
-    --border: #E2DDD4;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Outfit', sans-serif;
-    background: var(--cream);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agalya | Skills & Experience</title>
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    background: rgba(245,240,232,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700;
-    color: var(--dark);
-    letter-spacing: 0.02em;
-  }
-  .nav-logo span { color: var(--teal); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none; font-size: 0.85rem; font-weight: 500;
-    color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--teal); }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 64px;
-  }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 6rem 5% 6rem 8%;
-    position: relative;
-  }
-  .hero-left::after {
-    content: '';
-    position: absolute; right: 0; top: 10%; bottom: 10%;
-    width: 1px; background: var(--border);
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--teal); color: white;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; padding: 6px 14px; border-radius: 2px;
-    margin-bottom: 2rem; width: fit-content;
-  }
-  .hero-tag::before {
-    content: ''; width: 6px; height: 6px;
-    background: var(--gold); border-radius: 50%;
-  }
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    line-height: 1.05; font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .hero-name em {
-    font-style: italic; color: var(--teal);
-    display: block;
-  }
-  .hero-subtitle {
-    font-size: 1.05rem; color: var(--muted); font-weight: 300;
-    margin-bottom: 2.5rem; line-height: 1.7;
-    max-width: 420px;
-  }
-  .hero-subtitle strong { color: var(--dark); font-weight: 500; }
-  .hero-cta {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-  }
-  .btn-primary {
-    background: var(--dark); color: white;
-    padding: 14px 32px; border-radius: 3px;
-    text-decoration: none; font-size: 0.88rem; font-weight: 500;
-    letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: var(--teal); transform: translateY(-2px); }
-  .btn-outline {
-    border: 1.5px solid var(--dark); color: var(--dark);
-    padding: 14px 32px; border-radius: 3px;
-    text-decoration: none; font-size: 0.88rem; font-weight: 500;
-    letter-spacing: 0.04em; transition: all 0.2s;
-  }
-  .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+    :root {
+      --primary: #5145cd;
+      --secondary: #2563eb;
+      --dark: #172554;
+      --text: #475569;
+      --light: #f5f7ff;
+      --white: #ffffff;
+    }
 
-  .hero-right {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 6rem 8% 6rem 5%;
-    gap: 1.5rem;
-  }
-  .hero-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .stat-card {
-    background: white; border: 1px solid var(--border);
-    border-radius: 8px; padding: 1.2rem 1.4rem;
-    position: relative; overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-  .stat-card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 3px;
-    background: var(--teal);
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; font-weight: 700; color: var(--dark);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.75rem; color: var(--muted); font-weight: 400;
-    margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;
-  }
-  .hero-quote {
-    background: var(--dark); color: white;
-    border-radius: 8px; padding: 1.5rem 1.8rem;
-    position: relative;
-  }
-  .hero-quote::before {
-    content: '"';
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem; color: var(--teal); opacity: 0.4;
-    position: absolute; top: -10px; left: 16px; line-height: 1;
-  }
-  .hero-quote p {
-    font-size: 0.95rem; line-height: 1.7; font-weight: 300;
-    color: #CBD5E1; padding-left: 1.5rem;
-  }
-  .hero-quote p strong { color: white; font-weight: 500; }
-  .hero-location {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 0.82rem; color: var(--muted); font-weight: 400;
-  }
-  .hero-location svg { color: var(--teal); }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+    }
 
-  /* SECTION COMMON */
-  section { padding: 6rem 8%; }
-  .section-label {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--teal);
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 0.8rem;
-  }
-  .section-label::after {
-    content: ''; flex: 1; max-width: 40px; height: 1px;
-    background: var(--teal);
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 700; line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-  .section-desc {
-    font-size: 1rem; color: var(--muted); max-width: 560px;
-    line-height: 1.8; margin-bottom: 3rem; font-weight: 300;
-  }
+    .hero {
+      text-align: center;
+      padding: 65px 20px;
+      color: white;
+      background: linear-gradient(135deg, #312e81, #5145cd, #3985e8);
+    }
 
-  /* ABOUT */
-  #about { background: white; }
-  .about-grid {
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem;
-    align-items: center;
-  }
-  .about-text p {
-    font-size: 1rem; line-height: 1.85; color: #4A4A5A;
-    margin-bottom: 1.2rem; font-weight: 300;
-  }
-  .about-text p strong { color: var(--dark); font-weight: 500; }
-  .about-highlights {
-    display: flex; flex-direction: column; gap: 1rem;
-  }
-  .highlight-item {
-    display: flex; align-items: flex-start; gap: 14px;
-    padding: 1rem 1.2rem;
-    background: var(--cream); border-radius: 8px;
-    border-left: 3px solid var(--teal);
-  }
-  .highlight-icon {
-    width: 36px; height: 36px; background: var(--teal);
-    border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; flex-shrink: 0;
-    font-size: 1rem;
-  }
-  .highlight-text h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
-  .highlight-text p { font-size: 0.8rem; color: var(--muted); }
+    .hero .label {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.5);
+      padding: 5px 15px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+    }
 
-  /* SKILLS */
-  #skills { background: var(--cream); }
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-  .skill-category {
-    background: white; border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.6rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .skill-category:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-  .skill-cat-header {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 1.2rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .skill-cat-icon {
-    width: 38px; height: 38px; border-radius: 8px;
-    background: var(--teal); display: flex; align-items: center;
-    justify-content: center; font-size: 1.1rem;
-  }
-  .skill-cat-name {
-    font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em;
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill-tag {
-    background: var(--cream); color: var(--dark);
-    font-size: 0.76rem; font-weight: 500;
-    padding: 5px 12px; border-radius: 20px;
-    border: 1px solid var(--border);
-  }
-  .skill-tag.primary {
-    background: var(--teal); color: white; border-color: var(--teal);
-  }
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      margin-bottom: 10px;
+    }
 
-  /* EXPERIENCE */
-  #experience { background: white; }
-  .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute;
-    left: 0; top: 8px; bottom: 8px;
-    width: 2px; background: var(--border);
-  }
-  .timeline-item {
-    position: relative; margin-bottom: 3rem;
-    padding-left: 1.5rem;
-  }
-  .timeline-item::before {
-    content: ''; position: absolute;
-    left: -2rem; top: 8px;
-    width: 12px; height: 12px;
-    background: var(--teal); border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 0 0 2px var(--teal);
-  }
-  .timeline-date {
-    font-size: 0.75rem; font-weight: 600; color: var(--teal);
-    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;
-  }
-  .timeline-role {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem; font-weight: 700; margin-bottom: 2px;
-  }
-  .timeline-org {
-    font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; font-weight: 400;
-  }
-  .timeline-desc {
-    font-size: 0.9rem; line-height: 1.75; color: #4A4A5A;
-  }
-  .timeline-desc li {
-    margin-bottom: 6px; list-style: none;
-    padding-left: 1.2rem; position: relative;
-  }
-  .timeline-desc li::before {
-    content: '→'; position: absolute; left: 0;
-    color: var(--teal); font-size: 0.8rem;
-  }
-  .timeline-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
-  .timeline-tag {
-    background: #EDF7F5; color: var(--teal);
-    font-size: 0.7rem; font-weight: 600;
-    padding: 3px 10px; border-radius: 3px;
-    letter-spacing: 0.04em;
-  }
+    .hero p {
+      max-width: 650px;
+      margin: 8px auto;
+    }
 
-  /* PROJECTS */
-  #projects { background: var(--cream); }
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .project-card {
-    background: white; border: 1px solid var(--border);
-    border-radius: 12px; overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .project-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
-  .project-header {
-    padding: 1.6rem 1.6rem 1rem;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--dark) 0%, #2D3561 100%);
-    color: white;
-  }
-  .project-type {
-    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .project-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; font-weight: 700; margin-bottom: 4px;
-  }
-  .project-tech {
-    font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 300;
-  }
-  .project-body { padding: 1.4rem 1.6rem; flex: 1; }
-  .project-body p {
-    font-size: 0.88rem; line-height: 1.75; color: #4A4A5A; font-weight: 300;
-  }
-  .project-body ul { margin-top: 0.6rem; }
-  .project-body li {
-    font-size: 0.83rem; color: #5A5A6A; line-height: 1.6;
-    padding-left: 1.2rem; position: relative; margin-bottom: 4px;
-    list-style: none;
-  }
-  .project-body li::before {
-    content: '·'; position: absolute; left: 0;
-    color: var(--teal); font-size: 1.2rem; line-height: 1.2;
-  }
-  .project-footer {
-    padding: 1rem 1.6rem;
-    border-top: 1px solid var(--border);
-    display: flex; gap: 6px; flex-wrap: wrap;
-  }
-  .project-tag {
-    background: #EDF7F5; color: var(--teal);
-    font-size: 0.7rem; font-weight: 500;
-    padding: 4px 10px; border-radius: 4px;
-  }
+    .container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
 
-  /* CERTIFICATIONS */
-  #certifications { background: white; }
-  .certs-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-  .cert-card {
-    border: 1px solid var(--border); border-radius: 8px;
-    padding: 1.2rem 1.4rem;
-    display: flex; align-items: flex-start; gap: 12px;
-    transition: transform 0.2s, border-color 0.2s;
-  }
-  .cert-card:hover { transform: translateY(-3px); border-color: var(--teal); }
-  .cert-icon {
-    width: 36px; height: 36px; background: var(--teal);
-    border-radius: 6px; display: flex; align-items: center;
-    justify-content: center; font-size: 1.1rem; flex-shrink: 0;
-  }
-  .cert-name { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
-  .cert-by { font-size: 0.75rem; color: var(--muted); }
-  .cert-year { font-size: 0.7rem; color: var(--teal); font-weight: 600; margin-top: 4px; }
+    .section {
+      background: var(--white);
+      padding: 28px;
+      border-radius: 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 5px 20px rgba(49,46,129,.06);
+    }
 
-  /* ACHIEVEMENTS */
-  #achievements { background: var(--dark); color: white; }
-  #achievements .section-label { color: var(--gold); }
-  #achievements .section-label::after { background: var(--gold); }
-  #achievements .section-title { color: white; }
-  #achievements .section-desc { color: #94A3B8; }
-  .achievements-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.2rem;
-  }
-  .achievement-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px; padding: 1.4rem;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .achievement-card:hover {
-    background: rgba(15,123,108,0.15);
-    border-color: var(--teal);
-  }
-  .achievement-emoji { font-size: 1.8rem; margin-bottom: 0.6rem; display: block; }
-  .achievement-title { font-size: 0.92rem; font-weight: 600; color: white; margin-bottom: 4px; }
-  .achievement-sub { font-size: 0.78rem; color: #94A3B8; line-height: 1.5; }
-  .achievement-year {
-    display: inline-block; margin-top: 8px;
-    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
-    color: var(--gold); text-transform: uppercase;
-  }
+    h2 {
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-size: 25px;
+    }
 
-  /* EDUCATION */
-  #education { background: var(--cream); }
-  .edu-timeline { display: flex; flex-direction: column; gap: 1.5rem; max-width: 720px; }
-  .edu-card {
-    background: white; border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.6rem 1.8rem;
-    display: grid; grid-template-columns: 1fr auto;
-    gap: 0.5rem 2rem; align-items: start;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-left: 4px solid var(--teal);
-  }
-  .edu-card:hover { transform: translateX(4px); box-shadow: 4px 8px 24px rgba(0,0,0,0.08); }
-  .edu-degree { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
-  .edu-school { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
-  .edu-grade {
-    background: var(--teal); color: white;
-    font-size: 0.8rem; font-weight: 600;
-    padding: 5px 12px; border-radius: 4px;
-    white-space: nowrap; align-self: start;
-  }
-  .edu-year {
-    font-size: 0.75rem; color: var(--muted);
-    grid-column: 1/-1; margin-top: 2px;
-  }
+    h3 {
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
 
-  /* CONTACT */
-  #contact {
-    background: white;
-    text-align: center;
-  }
-  .contact-inner { max-width: 640px; margin: 0 auto; }
-  .contact-cards {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
-    margin-top: 2.5rem;
-  }
-  .contact-card {
-    display: flex; align-items: center; gap: 10px;
-    background: var(--cream); border: 1px solid var(--border);
-    border-radius: 8px; padding: 0.9rem 1.4rem;
-    text-decoration: none; color: var(--dark);
-    font-size: 0.85rem; font-weight: 500;
-    transition: all 0.2s;
-  }
-  .contact-card:hover {
-    background: var(--dark); color: white;
-    border-color: var(--dark); transform: translateY(-3px);
-  }
-  .contact-card svg { width: 18px; height: 18px; }
+    p {
+      color: var(--text);
+      margin-bottom: 10px;
+    }
 
-  /* FOOTER */
-  footer {
-    background: var(--dark); color: rgba(255,255,255,0.4);
-    text-align: center; padding: 2rem;
-    font-size: 0.78rem; letter-spacing: 0.04em;
-  }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
-  .delay-4 { animation-delay: 0.4s; }
-  .delay-5 { animation-delay: 0.5s; }
+    .card {
+      padding: 18px;
+      border: 1px solid #e0e7ff;
+      border-radius: 13px;
+      background: #fbfcff;
+    }
 
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 4rem 6% 2rem; }
-    .hero-left::after { display: none; }
-    .hero-right { padding: 2rem 6% 4rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    nav .nav-links { display: none; }
-    section { padding: 4rem 6%; }
-  }
-</style>
+    .card p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .tag {
+      background: #eeedff;
+      color: #4338a8;
+      padding: 7px 12px;
+      border-radius: 25px;
+      font-size: 14px;
+    }
+
+    .timeline {
+      border-left: 3px solid #c7d2fe;
+      padding-left: 20px;
+      margin-left: 5px;
+    }
+
+    .item {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 8px;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .date {
+      color: var(--secondary);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    ul {
+      padding-left: 22px;
+      color: var(--text);
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #172554;
+      color: white;
+    }
+
+    .footer p {
+      color: #dbeafe;
+    }
+
+    @media (max-width: 500px) {
+      .section {
+        padding: 21px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Agalya<span>.</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag fade-up">Frontend Developer & IoT Enthusiast</div>
-    <h1 class="hero-name fade-up delay-1">
-      Agalya
-      <em>J.</em>
-    </h1>
-    <p class="hero-subtitle fade-up delay-2">
-      B.Tech ECE student crafting <strong>responsive web interfaces</strong>, building <strong>IoT systems</strong>, and empowering students as a <strong>tech trainer</strong> — all from Puducherry, India.
+  <header class="hero">
+    <span class="label">Personal Profile</span>
+    <h1>Hi, I'm Agalya J.</h1>
+    <p>
+      Electronics & Communication Engineering | Software Development |
+      Mobile Applications | Web Technologies | IoT
     </p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="#projects" class="btn-primary">View My Work</a>
-      <a href="#contact" class="btn-outline">Get In Touch</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-stats fade-up delay-1">
-      <div class="stat-card">
-        <div class="stat-num">7.70</div>
-        <div class="stat-label">CGPA (6 Semesters)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Internships & Roles</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">8+</div>
-        <div class="stat-label">Projects Built</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">100+</div>
-        <div class="stat-label">Students Trained</div>
-      </div>
-    </div>
-    <div class="hero-quote fade-up delay-2">
-      <p>Passionate about <strong>building things that work</strong> — whether it's a pixel-perfect webpage, an IoT prototype, or a hands-on workshop that sparks curiosity in others.</p>
-    </div>
-    <div class="hero-location fade-up delay-3">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-      </svg>
-      Puducherry, India &nbsp;·&nbsp; Open to opportunities
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="section-label">About Me</div>
-      <h2 class="section-title">Developer, Trainer<br>& Builder.</h2>
-      <p>I'm a final-year Electronics & Communication Engineering student at SMVEC, Puducherry, with a passion that spans across <strong>frontend web development</strong>, <strong>embedded systems</strong>, and <strong>IoT</strong>.</p>
-      <p>During my internship at Praya Labs, I delivered a production-ready Drupal CMS website — translating Figma designs into pixel-accurate, cross-browser-compatible pages. I've also trained students as an IoT instructor and led a 15-member team as President of the IETE Student Forum.</p>
-      <p>I love working at the intersection of design and engineering, whether that means crafting clean UIs, building ESP8266 circuits, or mentoring beginners at workshops.</p>
-    </div>
-    <div class="about-highlights">
-      <div class="highlight-item">
-        <div class="highlight-icon">💻</div>
-        <div class="highlight-text">
-          <h4>Frontend Development</h4>
-          <p>HTML5, CSS3, JS, Drupal CMS, Figma prototyping</p>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">📡</div>
-        <div class="highlight-text">
-          <h4>Embedded Systems & IoT</h4>
-          <p>ESP8266/ESP32, Arduino IDE, Tinkercad, MATLAB</p>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">🎓</div>
-        <div class="highlight-text">
-          <h4>Teaching & Leadership</h4>
-          <p>IETE President, IoT Trainer, Workshop Organizer</p>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">🏆</div>
-        <div class="highlight-text">
-          <h4>Competition Winner</h4>
-          <p>1st Prize — Soldering Competition, PTU 2023</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">Technical Skills</div>
-  <h2 class="section-title">What I Work With</h2>
-  <p class="section-desc">A versatile skill set spanning frontend development, embedded systems, programming, and design tools.</p>
-  <div class="skills-grid">
-    <div class="skill-category">
-      <div class="skill-cat-header">
-        <div class="skill-cat-icon">🌐</div>
-        <div class="skill-cat-name">Frontend & Web</div>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag primary">HTML5</span>
-        <span class="skill-tag primary">CSS3</span>
-        <span class="skill-tag primary">JavaScript</span>
-        <span class="skill-tag">Drupal CMS</span>
-        <span class="skill-tag">Responsive Design</span>
-        <span class="skill-tag">AngularJS</span>
-        <span class="skill-tag">ReactJS</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <div class="skill-cat-header">
-        <div class="skill-cat-icon">⚡</div>
-        <div class="skill-cat-name">Embedded & IoT</div>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag primary">ESP8266</span>
-        <span class="skill-tag primary">ESP32</span>
-        <span class="skill-tag">Embedded C</span>
-        <span class="skill-tag">Arduino IDE</span>
-        <span class="skill-tag">Tinkercad</span>
-        <span class="skill-tag">MATLAB</span>
-        <span class="skill-tag">Multisim</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <div class="skill-cat-header">
-        <div class="skill-cat-icon">☕</div>
-        <div class="skill-cat-name">Programming</div>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag primary">Java</span>
-        <span class="skill-tag primary">Python</span>
-        <span class="skill-tag">C</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">PostgreSQL</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <div class="skill-cat-header">
-        <div class="skill-cat-icon">🎨</div>
-        <div class="skill-cat-name">Design & Tools</div>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag primary">Figma</span>
-        <span class="skill-tag primary">Git & GitHub</span>
-        <span class="skill-tag">Canva</span>
-        <span class="skill-tag">HSPICE</span>
-        <span class="skill-tag">Jupyter Notebook</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">Experience</div>
-  <h2 class="section-title">My Journey</h2>
-  <p class="section-desc">Internships, training roles, and leadership positions that shaped my skills.</p>
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-date">2024 – 2025</div>
-      <div class="timeline-role">President — IETE Student Forum</div>
-      <div class="timeline-org">Sri Manakula Vinayagar Engineering College, Puducherry</div>
-      <ul class="timeline-desc">
-        <li>Led a 15-member team to organize 3 technical workshops with 100+ total participants.</li>
-        <li>Conducted web development workshops training students on HTML, CSS, and responsive design fundamentals.</li>
-        <li>Organized hands-on sessions in electronics and communication domains.</li>
-      </ul>
-      <div class="timeline-tags">
-        <span class="timeline-tag">Leadership</span>
-        <span class="timeline-tag">Web Dev</span>
-        <span class="timeline-tag">Event Management</span>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">2025</div>
-      <div class="timeline-role">IoT Trainer</div>
-      <div class="timeline-org">IoT Innovators Company — 2-Day Training Program</div>
-      <ul class="timeline-desc">
-        <li>Conducted online hands-on IoT training on sensors, ESP32/ESP8266 microcontrollers, and real-world applications.</li>
-        <li>Guided students in building IoT projects using Tinkercad for circuit simulation and design fundamentals.</li>
-      </ul>
-      <div class="timeline-tags">
-        <span class="timeline-tag">IoT</span>
-        <span class="timeline-tag">ESP32</span>
-        <span class="timeline-tag">Training</span>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">2024</div>
-      <div class="timeline-role">Frontend Developer Intern</div>
-      <div class="timeline-org">Praya Labs, Thiruvannamalai</div>
-      <ul class="timeline-desc">
-        <li>Designed and developed the "Funobotz" website using Drupal CMS — fully responsive and mobile-first.</li>
-        <li>Implemented custom Drupal themes, configured content types and layout components to spec.</li>
-        <li>Managed full project codebase with Git/GitHub — branching, commits, and code reviews.</li>
-        <li>Translated Figma mockups into pixel-accurate, cross-browser-compatible pages (Chrome, Firefox, Edge).</li>
-      </ul>
-      <div class="timeline-tags">
-        <span class="timeline-tag">Drupal CMS</span>
-        <span class="timeline-tag">HTML/CSS</span>
-        <span class="timeline-tag">Figma</span>
-        <span class="timeline-tag">GitHub</span>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">Oct 2023</div>
-      <div class="timeline-role">Python Development Intern</div>
-      <div class="timeline-org">Octanet Pvt Ltd</div>
-      <ul class="timeline-desc">
-        <li>Completed assigned development tasks strengthening Python programming and problem-solving fundamentals.</li>
-      </ul>
-      <div class="timeline-tags">
-        <span class="timeline-tag">Python</span>
-        <span class="timeline-tag">Development</span>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">2024 – 2025</div>
-      <div class="timeline-role">Web Development Workshop — Organizer & Trainer</div>
-      <div class="timeline-org">SMVEC, Puducherry</div>
-      <ul class="timeline-desc">
-        <li>Conducted practical sessions on HTML, CSS, and responsive web design for beginners.</li>
-        <li>Mentored students in building their first complete webpage from scratch.</li>
-      </ul>
-      <div class="timeline-tags">
-        <span class="timeline-tag">HTML/CSS</span>
-        <span class="timeline-tag">Mentoring</span>
-        <span class="timeline-tag">Training</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label">Projects</div>
-  <h2 class="section-title">Things I've Built</h2>
-  <p class="section-desc">From IoT hardware prototypes to web applications and VLSI research — a diverse project portfolio.</p>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-type">Frontend · UI/UX Design</div>
-        <div class="project-title">Funobotz Website</div>
-        <div class="project-tech">Drupal CMS · Figma · HTML/CSS · Git</div>
-      </div>
-      <div class="project-body">
-        <p>Production-ready website built during internship at Praya Labs. Delivered a fully responsive, mobile-first interface aligned with client branding.</p>
-        <ul>
-          <li>Custom Drupal themes and content types configured to spec</li>
-          <li>Cross-browser compatible across Chrome, Firefox, Edge</li>
-          <li>Full codebase managed with Git branching strategies</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <span class="project-tag">Drupal</span>
-        <span class="project-tag">Responsive</span>
-        <span class="project-tag">Figma</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-type">UI/UX Design · Figma</div>
-        <div class="project-title">Fruityy — Fruit Shop App</div>
-        <div class="project-tech">Figma · UX Design · Prototyping</div>
-      </div>
-      <div class="project-body">
-        <p>High-fidelity UI design for a fruit ordering application covering product browsing, cart, and checkout screens.</p>
-        <ul>
-          <li>Applied visual hierarchy, consistent palette, and reusable components</li>
-          <li>Mapped detailed user flows for seamless end-to-end experience</li>
-          <li>Portfolio-ready prototype with polished UX principles</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <span class="project-tag">Figma</span>
-        <span class="project-tag">UX Design</span>
-        <span class="project-tag">Prototyping</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-type">Embedded Systems · IoT</div>
-        <div class="project-title">Smart Bike Stand Safety System</div>
-        <div class="project-tech">ESP8266 · Embedded C · IoT</div>
-      </div>
-      <div class="project-body">
-        <p>Automatic side-stand retraction system using ESP8266 with IoT-based monitoring to prevent accidents.</p>
-        <ul>
-          <li>Implemented fail-safe, low-cost hardware mechanism</li>
-          <li>Reduced stand-related accident risks by 70% in prototype testing</li>
-          <li>IoT monitoring for real-time status visibility</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <span class="project-tag">ESP8266</span>
-        <span class="project-tag">IoT</span>
-        <span class="project-tag">Hardware</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-type">VLSI Design · Research</div>
-        <div class="project-title">SRAM Using CNTFET — Low Power</div>
-        <div class="project-tech">HSPICE · CNTFET · VLSI</div>
-      </div>
-      <div class="project-body">
-        <p>Major academic project — designed a CNTFET-based SRAM cell architecture for ultra-low power applications.</p>
-        <ul>
-          <li>Improved read stability and write margin vs conventional 6T SRAM</li>
-          <li>Simulated and analyzed using HSPICE with Standard CNTFET model</li>
-          <li>Focused on reducing power consumption in memory circuits</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <span class="project-tag">VLSI</span>
-        <span class="project-tag">HSPICE</span>
-        <span class="project-tag">Research</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-type">Embedded Systems · IoT</div>
-        <div class="project-title">Microplastic Detection System</div>
-        <div class="project-tech">ESP8266 · Sensors · Embedded C</div>
-      </div>
-      <div class="project-body">
-        <p>System designed to detect microplastic particles in water samples using sensor-based detection techniques.</p>
-        <ul>
-          <li>Utilized specialized sensors for contaminant identification</li>
-          <li>Contributes to environmental monitoring solutions</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <span class="project-tag">IoT</span>
-        <span class="project-tag">Sensors</span>
-        <span class="project-tag">Environment</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-type">Web App · Java & Angular</div>
-        <div class="project-title">Management Systems Suite</div>
-        <div class="project-tech">Java · Angular · MySQL</div>
-      </div>
-      <div class="project-body">
-        <p>A suite of management applications built with Angular and Java/MySQL backend.</p>
-        <ul>
-          <li>Student Management System — CRUD with Angular services</li>
-          <li>Library Management — Java + MySQL with book/user tracking</li>
-          <li>Employee Payroll System — salary calculation with DB storage</li>
-          <li>Online Food Ordering — Angular components, routing and forms</li>
-        </ul>
-      </div>
-      <div class="project-footer">
-        <span class="project-tag">Angular</span>
-        <span class="project-tag">Java</span>
-        <span class="project-tag">MySQL</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-label">Certifications</div>
-  <h2 class="section-title">Credentials</h2>
-  <p class="section-desc">Validated learning from nationally recognized platforms.</p>
-  <div class="certs-grid">
-    <div class="cert-card">
-      <div class="cert-icon">📊</div>
-      <div>
-        <div class="cert-name">Database Management Systems</div>
-        <div class="cert-by">NPTEL</div>
-        <div class="cert-year">2024</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">📡</div>
-      <div>
-        <div class="cert-name">Introduction to IoT — Elite</div>
-        <div class="cert-by">NPTEL</div>
-        <div class="cert-year">2024</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🌐</div>
-      <div>
-        <div class="cert-name">Frontend Development</div>
-        <div class="cert-by">Great Learning</div>
-        <div class="cert-year">2023</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🛠️</div>
-      <div>
-        <div class="cert-name">Website Development Workshop</div>
-        <div class="cert-by">Top Engineers</div>
-        <div class="cert-year">2023</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🔌</div>
-      <div>
-        <div class="cert-name">PCB Design Workshop</div>
-        <div class="cert-by">AICTE IDEA Lab</div>
-        <div class="cert-year">2022</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="section-label">Achievements</div>
-  <h2 class="section-title">Milestones & Recognition</h2>
-  <p class="section-desc">Competitions won, hackathons participated, and symposiums attended.</p>
-  <div class="achievements-grid">
-    <div class="achievement-card">
-      <span class="achievement-emoji">🥇</span>
-      <div class="achievement-title">1st Prize — Soldering Competition</div>
-      <div class="achievement-sub">Puducherry Technological University</div>
-      <span class="achievement-year">2023</span>
-    </div>
-    <div class="achievement-card">
-      <span class="achievement-emoji">☁️</span>
-      <div class="achievement-title">Vultr Cloud Hackathon</div>
-      <div class="achievement-sub">Geeks for Geeks</div>
-      <span class="achievement-year">2024</span>
-    </div>
-    <div class="achievement-card">
-      <span class="achievement-emoji">🚀</span>
-      <div class="achievement-title">Hack the Horizon</div>
-      <div class="achievement-sub">Vellore Institute of Technology</div>
-      <span class="achievement-year">2024</span>
-    </div>
-    <div class="achievement-card">
-      <span class="achievement-emoji">⚙️</span>
-      <div class="achievement-title">TETRONX Technical Symposium</div>
-      <div class="achievement-sub">Puducherry Technological University</div>
-      <span class="achievement-year">2024</span>
-    </div>
-    <div class="achievement-card">
-      <span class="achievement-emoji">📄</span>
-      <div class="achievement-title">Paper Presentation</div>
-      <div class="achievement-sub">SMVEC Internal Symposium</div>
-      <span class="achievement-year">2023</span>
-    </div>
-    <div class="achievement-card">
-      <span class="achievement-emoji">👩‍💼</span>
-      <div class="achievement-title">President — IETE Student Forum</div>
-      <div class="achievement-sub">Elected leader, 15-member team</div>
-      <span class="achievement-year">2024–Present</span>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">Education</div>
-  <h2 class="section-title">Academic Background</h2>
-  <p class="section-desc">Grounded in electronics engineering with a passion for software and systems.</p>
-  <div class="edu-timeline">
-    <div class="edu-card">
-      <div>
-        <div class="edu-degree">B.Tech — Electronics & Communication Engineering</div>
-        <div class="edu-school">Sri Manakula Vinayagar Engineering College, Puducherry</div>
-      </div>
-      <div class="edu-grade">CGPA 7.70</div>
-      <div class="edu-year">2022 – 2026 (Expected)</div>
-    </div>
-    <div class="edu-card">
-      <div>
-        <div class="edu-degree">Higher Secondary Education (12th Grade)</div>
-        <div class="edu-school">Sri Navadurga Higher Secondary School, Puducherry</div>
-      </div>
-      <div class="edu-grade">84%</div>
-      <div class="edu-year">2022</div>
-    </div>
-    <div class="edu-card">
-      <div>
-        <div class="edu-degree">Secondary Education (10th Grade)</div>
-        <div class="edu-school">Sri Navadurga Higher Secondary School, Puducherry</div>
-      </div>
-      <div class="edu-grade">86%</div>
-      <div class="edu-year">2020</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-label" style="justify-content:center;">Contact</div>
-    <h2 class="section-title">Let's Connect</h2>
-    <p class="section-desc" style="margin:0 auto 0;">
-      Open to frontend developer roles, IoT projects, internships, and collaboration opportunities. Feel free to reach out!
+    <p>
+      Building practical solutions, exploring new technologies,
+      and continuously growing as a developer.
     </p>
-    <div class="contact-cards">
-      <a href="mailto:agalyajagateesan@gmail.com" class="contact-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114V5.383zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.731z"/>
-        </svg>
-        agalyajagateesan@gmail.com
-      </a>
-      <a href="tel:+917598837162" class="contact-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
-        </svg>
-        +91 7598837162
-      </a>
-      <a href="https://linkedin.com/in/agalya2005" target="_blank" class="contact-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-        </svg>
-        LinkedIn
-      </a>
-      <a href="https://github.com/Agal5" target="_blank" class="contact-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-        GitHub
-      </a>
-    </div>
-  </div>
-</section>
+  </header>
 
-<footer>
-  <p>Designed & built with care · Agalya J · Puducherry, India · 2025</p>
-</footer>
+  <main class="container">
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
+    <section class="section">
+      <h2>About Me</h2>
+      <p>
+        I am an Electronics and Communication Engineering student from
+        Sri Manakula Vinayagar Engineering College, with an interest in
+        software development, mobile applications, web technologies,
+        electronics, and Internet of Things (IoT).
+      </p>
+      <p>
+        I have gained practical exposure through internships, academic
+        projects, technical activities, and independent learning. I enjoy
+        understanding how technologies work and applying my knowledge
+        to build useful applications and solutions.
+      </p>
+    </section>
 
-  document.querySelectorAll('.skill-category, .project-card, .cert-card, .achievement-card, .timeline-item, .edu-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
+    <section class="section">
+      <h2>Technical Skills</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Mobile Development</h3>
+          <p>React Native, Android development, Kotlin, Java, Android Studio</p>
+        </div>
+
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>HTML, CSS, JavaScript, Drupal, responsive web design</p>
+        </div>
+
+        <div class="card">
+          <h3>State Management & APIs</h3>
+          <p>Redux Toolkit, RTK Query, API integration</p>
+        </div>
+
+        <div class="card">
+          <h3>Electronics & IoT</h3>
+          <p>ESP32, Arduino, sensors, IoT prototyping, circuit simulation</p>
+        </div>
+
+        <div class="card">
+          <h3>Design & Collaboration</h3>
+          <p>Figma, Canva, Git, GitHub, collaborative development workflows</p>
+        </div>
+
+        <div class="card">
+          <h3>Core Concepts</h3>
+          <p>Computer Fundamentals, DBMS concepts, programming fundamentals</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Professional Experience</h2>
+
+      <div class="timeline">
+
+        <div class="item">
+          <span class="date">August 2026 – Present</span>
+          <h3>Junior Software Engineer</h3>
+          <p>Proglint Solutions</p>
+          <ul>
+            <li>Working with existing software projects and application codebases.</li>
+            <li>Contributing to website design improvement and optimization tasks.</li>
+            <li>Building on experience with React Native, Redux Toolkit, and API integration.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <span class="date">April 2026 – July 2026</span>
+          <h3>Mobile App Developer Intern</h3>
+          <p>Proglint Solutions</p>
+          <ul>
+            <li>Worked with React Native mobile application projects.</li>
+            <li>Gained practical exposure to Redux Toolkit and API integration.</li>
+            <li>Worked with existing repositories and application features.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <span class="date">2024</span>
+          <h3>Frontend Developer Intern</h3>
+          <p>Praya Labs</p>
+          <ul>
+            <li>Worked on Drupal website development and responsive user interfaces.</li>
+            <li>Used HTML and CSS to customize website layouts and themes.</li>
+            <li>Worked with Git workflows and translated design references into web pages.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projects</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>9T SRAM Using CNTFET Technology</h3>
+          <p>
+            Academic research project focused on power-optimized 9T SRAM
+            design using 32 nm CNTFET technology and HSPICE simulation.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Microplastics Water Monitoring</h3>
+          <p>
+            IoT-based water monitoring project using sensors, a
+            microcontroller, and an OLED display to monitor water-related
+            parameters.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Student Record Management System</h3>
+          <p>
+            Java console application implementing basic student record
+            management and CRUD operations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Foody Landing Page</h3>
+          <p>
+            A food-themed landing page created using HTML and CSS to
+            practice web layout and styling.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Mobile Application Development</h3>
+          <p>
+            Practical work with React Native application screens,
+            state management, API integration, and offline app concepts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>B.E. Electronics and Communication Engineering</h3>
+        <p>Sri Manakula Vinayagar Engineering College</p>
+        <p>Expected graduation: 2026</p>
+        <p>CGPA: 7.70 / 10 (previously reported)</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Leadership & Activities</h2>
+      <div class="card">
+        <h3>President — IETE Students' Forum (ISF)</h3>
+        <p>
+          Contributed to student technical activities and helped organize
+          events such as HTML hands-on sessions, technical quizzes,
+          electronics-related activities, and technology workshops.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Certifications & Learning</h2>
+      <ul>
+        <li>NPTEL — Database Management Systems (52 marks)</li>
+        <li>NPTEL — Internet of Things (Elite, 77%)</li>
+        <li>Infosys Springboard — HTML, CSS, and JavaScript learning</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Areas of Interest</h2>
+      <div class="tags">
+        <span class="tag">Mobile App Development</span>
+        <span class="tag">Frontend Development</span>
+        <span class="tag">Software Engineering</span>
+        <span class="tag">UI Design</span>
+        <span class="tag">Internet of Things</span>
+        <span class="tag">Electronics</span>
+        <span class="tag">Technology Education</span>
+        <span class="tag">Continuous Learning</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <h2>Let's Connect!</h2>
+    <p>Open to learning opportunities, collaborations, and software development roles.</p>
+    <p>Agalya J. | Technology • Innovation • Growth</p>
+  </footer>
+
 </body>
 </html>
